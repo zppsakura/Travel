@@ -51,10 +51,6 @@ export default {
                     id:'0008',
                     imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png',
                     desc:'中山陵'
-                },{
-                    id:'0009',
-                    imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/c1/6f15f887179fa002.png',
-                    desc:'夫子庙'
                 }
             ]
         }
@@ -81,6 +77,8 @@ export default {
         width 100%
         height 0
         padding-bottom 50%
+    .icons
+        margin-top .1rem
         .icon
             position relative
             overflow hidden
