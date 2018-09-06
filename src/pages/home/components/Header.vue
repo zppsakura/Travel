@@ -4,10 +4,12 @@
             <span class="iconfont back-icon">&#xe624;</span>
         </div>
         <input class="header-input" type="text" placeholder="输入城市/景点/游玩主题"/>
-        <div class="header-right">
-            {{this.city}}
-            <span class="iconfont arrow-icon">&#xe6aa;</span>
+        <router-link to='/city'>
+            <div class="header-right">
+                {{this.city}}
+                <span class="iconfont arrow-icon">&#xe6aa;</span>
             </div>
+        </router-link>
     </div>
 </template>
 
@@ -47,6 +49,7 @@ export default {
         width : 1.24rem
         float : right 
         text-align : center
+        color #fff
         .arrow-icon
             font-size .24rem
             margin-left -.04rem
