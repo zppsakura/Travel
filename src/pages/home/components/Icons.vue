@@ -1,6 +1,6 @@
 <template>
     <div class="icons">
-        <swiper>
+        <swiper :options="swiperOption" v-if="showIcons">
             <swiper-slide v-for="(page,index) of pages" :key="index">
                 <div class="icon" v-for="item of page" :key="item.id">
                     <div class="icon-img">
@@ -9,6 +9,7 @@
                     <p class="icon-desc">{{item.desc}}</p>
                 </div>
             </swiper-slide>
+            <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
     </div>
 </template>
@@ -16,49 +17,22 @@
 <script>
 export default {
     name:'HomeIcons',
-    data (){
-        return{
-            iconList:[
-                {
-                    id:'0001',
-                    imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-                    desc:'景点门票'
-                },{
-                    id:'0002',
-                    imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png',
-                    desc:'文化古迹'
-                },{
-                    id:'0003',
-                    imgUrl:'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-                    desc:'一日游'
-                },{
-                    id:'0004',
-                    imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png',
-                    desc:'游乐场'
-                },{
-                    id:'0005',
-                    imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/6a/45f595250c73d102.png',
-                    desc:'夏日玩水'
-                },{
-                    id:'0006',
-                    imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/c1/6f15f887179fa002.png',
-                    desc:'夫子庙'
-                },{
-                    id:'0007',
-                    imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/fa/2548667cb6e902.png',
-                    desc:'总统府'
-                },{
-                    id:'0008',
-                    imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png',
-                    desc:'中山陵'
-                }
-            ]
-        }
+    props:{
+        list:Array
+    },
+     data() {
+      return {
+        swiperOption: {
+           autoplay:false,
+           loop:true
+        },
+        
+      }
     },
     computed:{
         pages(){
             const pages = []
-            this.iconList.forEach((item,index)=>{
+            this.list.forEach((item,index)=>{
                 const page = Math.floor(index/8)
                 if(!pages[page]){
                     pages[page] = []
@@ -66,6 +40,9 @@ export default {
                 pages[page].push(item)
             })
             return pages
+        },
+        showIcons(){
+            return this.list.length
         }
     }
 }
@@ -77,6 +54,8 @@ export default {
         width 100%
         height 0
         padding-bottom 50%
+    .icons >>> .swiper-pagination-bullet-active
+        background #eee
     .icons
         margin-top .1rem
         .icon
@@ -100,7 +79,7 @@ export default {
                     height 100%
             .icon-desc
                 position absolute
-                top 70px
+                top 80px
                 left 0
                 right 0
                 height .44rem

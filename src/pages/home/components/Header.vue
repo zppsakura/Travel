@@ -3,11 +3,9 @@
         <div class="header-left">
             <span class="iconfont back-icon">&#xe624;</span>
         </div>
-        <div class="header-input">
-            <span class="iconfont search-icon">&#xe632;</span>
-            输入城市/景点/游玩路线</div>
+        <input class="header-input" type="text" placeholder="输入城市/景点/游玩主题"/>
         <div class="header-right">
-            城市
+            {{this.city}}
             <span class="iconfont arrow-icon">&#xe6aa;</span>
             </div>
     </div>
@@ -15,7 +13,10 @@
 
 <script>
 export default {
-    name:'HomeHeader'
+    name:'HomeHeader',
+    props:{
+        city:String
+    }
 }
 </script>
 <style lang="stylus" scoped>
@@ -39,7 +40,7 @@ export default {
         margin-left : .2rem
         background : #fff
         border-radius : .1rem
-        color : #cccccc
+        text-indent .3rem 
         .search-icon
             padding-left .2rem
     .header-right
