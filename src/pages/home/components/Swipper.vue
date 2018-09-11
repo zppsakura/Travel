@@ -41,6 +41,7 @@
     width 100%
     height 0
     padding-bottom 30%
+
     .swipper-img 
         width 100%
 

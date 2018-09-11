@@ -5,7 +5,11 @@
         </div>
         <div class="search-content" v-show="keyword" ref="search">
             <ul>
-                <li class="search-item border-bottom" v-for="item of foundList" :key="item.id" >
+                <li class="search-item border-bottom" 
+                    v-for="item of foundList" 
+                    :key="item.id" 
+                    @click="searchCityClick(item.name)"
+                    >
                     {{item.name}}
                 </li>
                 <li class="search-item border-bottom" v-show="isNotFound">
@@ -37,6 +41,13 @@ export default {
             keyword:'',
             timer:null,
             foundList: []
+        }
+    },
+    methods:{
+        searchCityClick(city){
+            this.$store.commit('changeCity',city)
+            this.$router.push('/')
+            this.keyword = city
         }
     },
     mounted(){
