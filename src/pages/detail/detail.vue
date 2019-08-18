@@ -13,12 +13,14 @@ import DetailBanner from "./components/banner";
 import DetailHeader from "./components/header";
 import DetailList from "./components/list";
 import axios from 'axios';
+
 export default {
   name: "Detail",
   components: {
     DetailBanner,
     DetailHeader,
-    DetailList
+    DetailList,
+    
   },
   data() {
     return {

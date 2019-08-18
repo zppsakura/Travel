@@ -78,7 +78,7 @@ export default {
                     height 100%
             .icon-desc
                 position absolute
-                top 80px
+                top 70px
                 left 0
                 right 0
                 height .44rem

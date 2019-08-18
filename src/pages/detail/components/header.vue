@@ -3,10 +3,10 @@
         <router-link tag="div" to="/" class="header-abc" v-show="showAbs">
             <span class="iconfont home-back-icon">&#xe624;</span>
         </router-link>
-        <router-link tag="div" to="/" class="header-fixed" v-show="!showAbs">
+        <!-- <router-link tag="div" to="/" class="header-fixed" v-show="!showAbs">
             <span class="iconfont back-fixed-home">&#xe624;</span>
             <div class="header-txt">景点详情</div> 
-        </router-link>
+        </router-link> -->
     </div>
 </template>
 
@@ -18,22 +18,22 @@ export default {
             showAbs:true
         }
     },
-    methods:{
-        handleScroll(){
-            const top = document.documentElement.scrollTop
-            if(top > 60){
-                this.showAbs = false
-            }else{
-                this.showAbs = true
-            }
-        }
-    },
-    activated(){
-        window.addEventListener('scroll',this.handleScroll)
-    },
-    deactivated(){
-        window.removeEventListener('scroll',this.handleScroll)
-    }
+    // methods:{
+    //     handleScroll(){
+    //         const top = document.documentElement.scrollTop
+    //         if(top > 60){
+    //             this.showAbs = false
+    //         }else{
+    //             this.showAbs = true
+    //         }
+    //     }
+    // },
+    // activated(){
+    //     window.addEventListener('scroll',this.handleScroll)
+    // },
+    // deactivated(){
+    //     window.removeEventListener('scroll',this.handleScroll)
+    // }
 
 }
 </script>
